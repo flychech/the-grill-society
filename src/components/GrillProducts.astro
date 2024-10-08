@@ -1,0 +1,186 @@
+---
+const products = [
+  {
+    title: 'El Mamalón',
+    description:
+      'El único que va con todo y para todo, res, cerdo, pollo, mariscos, pescados, salsas y verduras',
+    image: './../assets/products/el-mamalon.jpeg'
+  },
+  {
+    title: 'La Salsona',
+    description:
+      'Nunca fué tan fácil hacer una salsa con tan solo una cucharada, que brindará ese rico sabor tatemado. Solo agrega 2 jitomates o 3 tomates, 1/2 taza de agua (o cerveza) y a licuar.',
+    image: './../assets/products/la-salsona.jpeg'
+  },
+  {
+    title: 'Rub Norteño',
+    description:
+      'Rub con sabores clásicos del norte, puedes usarlo en res, cerdo, pollo o para tus guisos favoritos.',
+    image: './../assets/products/nrub-norteno.jpeg'
+  },
+  {
+    title: 'Rub Centro',
+    description:
+      'Mezcla de sabores chilangos, que aportarán ese toque "mexa" que tanto nos caracteriza en res, pollo, cerdo y mariscos',
+    image: './../assets/products/rub-centro.jpeg'
+  },
+  {
+    title: 'Rub Costa',
+    description: 'Esto es un texto 3',
+    image: './../assets/products/rub-costa.jpeg'
+  },
+  {
+    title: 'Rub Negro',
+    description: 'texto',
+    image: './../assets/products/rub-negro.jpeg'
+  },
+  {
+    title: 'Rub Sureño',
+    description: 'texto',
+    image: './../assets/products/rub-sureno.jpeg'
+  },
+  {
+    title: 'Sal Ahumada',
+    description: 'texto',
+    image: './../assets/products/sal-ahumada.jpeg'
+  },
+  {
+    title: 'Sal Ahumada Con Pimienta',
+    description: 'texto',
+    image: './../assets/products/sal-ahumada-con-pimienta.jpeg'
+  }
+]
+---
+
+<article>
+  {
+    products.map((product) => (
+      <>
+        <figure>
+          <img src={product.image} />
+        </figure>
+        <section>
+          <h2>{product.title}</h2>
+          <p>{product.description}</p>
+        </section>
+      </>
+    ))
+  }
+</article>
+
+<style>
+  article {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  figure {
+    background: #eee;
+    width: calc(50% + 1px);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    box-shadow: 4px -4px 8px rgba(0, 0, 0, 0.4);
+
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  section {
+    background: #e7b998;
+    width: 50%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 5vmin;
+    box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+    transform: translateX(100%);
+  }
+
+  section::before {
+    background: inherit;
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    transform: translate(calc(-50% + 1px), -50%) rotate(-45deg);
+    clip-path: polygon(-15% -15%, 110% 0%, 0% 110%);
+    box-shadow: -4px -2px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 1.5vmin 0 0 0;
+  }
+
+  figure:nth-of-type(1) {
+    width: 50%;
+  }
+  section:nth-of-type(1) {
+    transform: translateX(0);
+  }
+
+  figure:nth-of-type(2n) {
+    transform: translateX(calc(100% - 2px));
+    box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+  }
+  section:nth-of-type(2n) {
+    transform: translateX(0);
+  }
+
+  section:nth-of-type(2n)::before {
+    left: auto;
+    right: 0;
+    transform: translate(calc(50% - 1px), -50%) rotate(-45deg) scale(-1);
+  }
+
+  figure::after {
+    content: '';
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    bottom: 60px;
+    left: 45%;
+    border: 2px dashed #fff;
+    outline: 1px solid #fff;
+    outline-offset: -5vmin;
+    backdrop-filter: grayscale(1);
+    pointer-events: none;
+  }
+
+  figure:nth-of-type(2n)::after {
+    right: 45%;
+    left: 60px;
+  }
+
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin: 15% 0 auto;
+    font-size: calc(3vmin + 3vmax);
+    text-align: center;
+    line-height: 1.5;
+    word-spacing: 0.5rem;
+  }
+
+  p {
+    text-align: right;
+    width: 100%;
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: calc(1.5vmin + 1.75vmax);
+    margin-bottom: 5%;
+  }
+
+  /* p {
+    font-weight: 400;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 2.5rem;
+  } */
+</style>

@@ -1,3 +1,53 @@
+<script>
+  const texts = [
+    'Más que una pasión... un estilo de vida',
+    'Explorando sabores únicos',
+    'Sazonadores de alta calidad',
+    'Transforma tus recetas',
+    'Lleva tus comidas al siguiente nivel'
+  ]
+
+  let currentIndex = 0
+  let textElement: HTMLElement | null
+
+  const typeWriterEffect = (text: string, element: HTMLElement | null, delay = 60) => {
+    if (element) {
+      element.textContent = '' // Limpiar el texto previo
+    }
+    let i = 0
+
+    const type = () => {
+      if (i < text.length) {
+        if (element) {
+          element.textContent += text.charAt(i)
+        }
+        i++
+        setTimeout(type, delay)
+      }
+    }
+
+    type()
+  }
+
+  // Función para actualizar el texto cada 3 segundos
+  const startTextRotation = () => {
+    setInterval(
+      () => {
+        currentIndex = (currentIndex + 1) % texts.length
+        typeWriterEffect(texts[currentIndex], textElement)
+      },
+      3000 + texts[currentIndex].length * 100
+    ) // Cambia cada 3 segundos
+  }
+
+  // Iniciar la rotación del texto cuando el componente esté montado
+  window.onload = () => {
+    textElement = document.querySelector('.text-rotator')
+    typeWriterEffect(texts[currentIndex], textElement)
+    startTextRotation()
+  }
+</script>
+
 <div
   id="hero"
   class="h-screen w-full bg-slate-400 flex items-center justify-center text-center after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-black after:bg-opacity-50 after:z-20"
@@ -12,12 +62,62 @@
     preload="auto"
     class="w-full h-full object-cover absolute top-0 left-0 z-10"
   >
-    <source type="video/mp4" src="../../assets/hero.mp4" />
+    <source type="video/mp4" src="../../assets/hero-compressed.mp4" />
     Yout browser does not support the video tag.
   </video>
 
   <div class="z-30 relative text-white">
-    <h1 class="text-6xl font-bold">THE GRILL SOCIETY</h1>
-    <h2 class="text-3xl">Más que una pasión... un estilo de vida</h2>
+    <h1 class="text-6xl font-bold main-title">THE GRILL SOCIETY</h1>
+    <h2 class="text-3xl subtitle text-rotator"></h2>
   </div>
 </div>
+
+<style>
+  .main-title {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-weight: 400;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .main-title {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .main-title {
+      font-size: 3rem;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .main-title {
+      font-size: 4rem;
+    }
+
+    .subtitle {
+      font-size: 2.5rem;
+    }
+  }
+
+  .text-rotator {
+    animation: caret 0.75s steps(1) infinite;
+  }
+</style>

@@ -4,24 +4,31 @@ import Card from '../components/Card.astro'
 import Hero from '../components/Hero.astro'
 import Header from '../components/Header.astro'
 import Products from '../components/Products.astro'
+import ProductsScroll from '../components/ProductsScroll.astro'
+import GrillProducts from '../components/GrillProducts.astro'
 ---
 
 <Layout title="Welcome to The Grill Society.">
   <Header />
-  <section class="relative">
-    <Hero />
-  </section>
-  <section>
-    <Products />
-  </section>
-  <section>
-    <div class="h-screen w-full bg-grill-image bg-no-repeat bg-cover">hola mundo</div>
-  </section>
+  <main>
+    <section>
+      <Hero />
+    </section>
+    <section>
+      <GrillProducts />
+    </section>
+    <section>
+      <Products />
+    </section>
+    <section>
+      <div class="h-screen w-full bg-grill-image bg-no-repeat bg-cover">hola mundo</div>
+    </section>
+  </main>
 </Layout>
 
 <style>
   section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
   }
 </style>
