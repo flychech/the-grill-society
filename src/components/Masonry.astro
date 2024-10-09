@@ -1,0 +1,107 @@
+<div class="bg-grill-image bg-no-repeat bg-cover bg-fixed pt-20">
+  <h1 class="text-center text-5xl">¿QUIERES APRENDER A REALIZAR ESTO Y MAS?</h1>
+  <div class="container m-auto">
+    <figure>
+      <img src="./../../assets/food/3.jpeg" alt="A windmill" />
+    </figure>
+    <figure>
+      <img src="./../../assets/food/5.jpeg" alt="The Clifton Suspension Bridge" />
+    </figure>
+    <figure>
+      <video loop muted autoplay preload="auto" class="w-full h-full object-cover">
+        <source type="video/mp4" src="./../../assets/food/2.mp4" />
+        Yout browser does not support the video tag.
+      </video>
+    </figure>
+    <figure>
+      <img src="./../../assets/food/6.jpeg" alt="Sunset and boats" />
+    </figure>
+    <figure>
+      <img src="./../../assets/food/14.jpeg" alt="the Toronto light up sign at night" />
+    </figure>
+    <figure>
+      <video loop muted autoplay preload="auto" class="w-full h-full object-cover">
+        <source type="video/mp4" src="./../../assets/food/16.mp4" />
+        Yout browser does not support the video tag.
+      </video>
+    </figure>
+    <figure>
+      <img src="./../../assets/food/8.jpeg" alt="a single checked balloon" />
+    </figure>
+    <figure>
+      <img src="./../../assets/food/9.jpeg" alt="a hot air balloon shaped like a dog" />
+    </figure>
+    <figure>
+      <img src="./../../assets/food/10.jpeg" alt="View from a hot air balloon of other balloons" />
+    </figure>
+    <figure>
+      <img src="./../../assets/food/12.jpg" alt="sunrise over a harbor" />
+    </figure>
+    <figure>
+      <video loop muted autoplay preload="auto" class="w-full h-full object-cover">
+        <source type="video/mp4" src="./../../assets/food/4.mp4" />
+        Yout browser does not support the video tag.
+      </video>
+    </figure>
+    <figure>
+      <img src="./../../assets/food/11.jpeg" alt="a balloon fairground ride" />
+    </figure>
+    <figure>
+      <img src="./../../assets/food/13.jpeg" alt="three hot air balloons in a blue sky" />
+    </figure>
+    <figure>
+      <video loop muted autoplay preload="auto" class="w-full h-full object-cover">
+        <source type="video/mp4" src="./../../assets/food/1.mp4" />
+        Yout browser does not support the video tag.
+      </video>
+    </figure>
+  </div>
+</div>
+
+<style>
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  figure {
+    border-radius: 16px;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    overflow: hidden;
+    box-shadow: 4px -4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  figure > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+
+  figure a {
+    color: black;
+    text-decoration: none;
+  }
+
+  figcaption {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.2em 0.5em;
+    justify-self: start;
+  }
+
+  .container {
+    column-count: 3;
+    column-gap: 16px;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 4rem;
+  }
+</style>

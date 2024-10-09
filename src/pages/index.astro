@@ -6,6 +6,8 @@ import Header from '../components/Header.astro'
 import Products from '../components/Products.astro'
 import ProductsScroll from '../components/ProductsScroll.astro'
 import GrillProducts from '../components/GrillProducts.astro'
+import Masonry from '../components/Masonry.astro'
+import Recipe from '../components/Recipe.astro'
 ---
 
 <Layout title="Welcome to The Grill Society.">
@@ -14,21 +16,24 @@ import GrillProducts from '../components/GrillProducts.astro'
     <section>
       <Hero />
     </section>
+
+    <section>
+      <Masonry />
+    </section>
+
     <section>
       <GrillProducts />
     </section>
-    <section>
-      <Products />
-    </section>
-    <section>
-      <div class="h-screen w-full bg-grill-image bg-no-repeat bg-cover">hola mundo</div>
-    </section>
-  </main>
-</Layout>
 
-<style>
-  section {
-    scroll-snap-align: center;
-    scroll-snap-stop: normal;
-  }
-</style>
+    <section>
+      <Recipe />
+    </section>
+
+    <style>
+      section {
+        scroll-snap-align: center;
+        scroll-snap-stop: normal;
+      }
+    </style>
+  </main></Layout
+>
